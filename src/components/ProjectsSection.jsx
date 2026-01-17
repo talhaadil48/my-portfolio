@@ -1,31 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight, Play, X } from "lucide-react";
 
 const videoEdits = [
-  { id: 1, title: "111 – Viral Real Estate", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/v1768663022/1_ptdsqr.mp4" },
-  { id: 5, title: "Suen – Trending YT VSL Video", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/v1768662994/5_uzikcw.mp4" },
-  { id: 6, title: "Hannah – Personal Brand Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/v1768663025/2_rjrnpi.mp4" },
+  { id: 1, title: "Viral Real Estate", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663022/1_ptdsqr.mp4" },
+  { id: 5, title: "Trending YT VSL Video", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768662994/5_uzikcw.mp4" },
+  { id: 6, title: "Personal Brand Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663025/2_rjrnpi.mp4" },
 ];
 
 const reels = [
-  { id: 9, title: "Bypr – Instagram Viral Cinematic Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/v1768662996/6_xijgbh.mp4" },
-  { id: 7, title: "Hormozi – Informative VSL", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/v1768663007/3_rsruss.mp4" },
-  { id: 8, title: "Kyle – Instagram Viral Real Estate", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/v1768663014/4_jqx4yq.mov" },
-  { id: 1, title: "AI – Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/v1768663475/1_mqogdv.mp4" },
-  { id: 2, title: "Leo – Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/v1768663458/2_tl9u7q.mov" },
-  { id: 3, title: "Talking Head – Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/v1768663428/3_eyxzi6.mp4" },
-  { id: 4, title: "Fredrick Skov – Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/v1768663475/4_xqjevv.mp4" },
-  { id: 5, title: "Lifestyle – Instagram Viral Cinematic Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/v1768663473/5_ts4v3g.mp4" },
+  { id: 9, title: "Instagram Viral Cinematic Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768662996/6_xijgbh.mp4" },
+  { id: 7, title: "Informative VSL", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663007/3_rsruss.mp4" },
+  { id: 8, title: "Instagram Viral Real Estate", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663014/4_jqx4yq.mov" },
+  { id: 1, title: "Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663475/1_mqogdv.mp4" },
+  { id: 2, title: "Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663458/2_tl9u7q.mov" },
+  { id: 3, title: "Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663428/3_eyxzi6.mp4" },
+  { id: 4, title: "Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663475/4_xqjevv.mp4" },
+  { id: 5, title: "Instagram Viral Cinematic Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663473/5_ts4v3g.mp4" },
 ];
 
 export const ProjectsSection = () => {
   const [activeVideo, setActiveVideo] = useState(null);
 
+  // Preload all video files for fastest fetch
+  useEffect(() => {
+    videoEdits.concat(reels).forEach((vid) => {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "video";
+      link.href = vid.video;
+      document.head.appendChild(link);
+    });
+  }, []);
+
   return (
-    <section
-      id="projects"
-      className="py-24 px-4 md:px-6 relative overflow-hidden"
-    >
+    <section id="projects" className="py-24 px-4 md:px-6 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-primary/5 pointer-events-none" />
 
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -40,8 +48,6 @@ export const ProjectsSection = () => {
           A collection of cinematic video edits and high-energy vertical reels —
           crafted with obsession for motion, color, and vibe.
         </p>
-
-        {/* Video Edits */}
 
         {/* Reels */}
         <div>
@@ -62,6 +68,7 @@ export const ProjectsSection = () => {
                   loop
                   playsInline
                   autoPlay
+                  preload="auto"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
@@ -75,16 +82,15 @@ export const ProjectsSection = () => {
 
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="w-14 h-14 rounded-full bg-primary/80 flex items-center justify-center shadow-xl shadow-primary/40 transform scale-90 group-hover:scale-100 transition-transform duration-500">
-                    <Play
-                      size={24}
-                      className="text-primary-foreground fill-current"
-                    />
+                    <Play size={24} className="text-primary-foreground fill-current" />
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Video Edits */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold mb-10 text-center md:text-left">
             Video Edits
@@ -104,15 +110,13 @@ export const ProjectsSection = () => {
                     loop
                     playsInline
                     autoPlay
+                    preload="auto"
                     className="w-full h-full object-cover transition-transform duration-700"
                   />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                     <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center transform scale-75 group-hover:scale-100 transition-transform duration-500 shadow-lg shadow-primary/40">
-                      <Play
-                        size={28}
-                        className="text-primary-foreground fill-current"
-                      />
+                      <Play size={28} className="text-primary-foreground fill-current" />
                     </div>
                   </div>
                 </div>
