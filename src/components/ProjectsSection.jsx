@@ -10,7 +10,7 @@ const videoEdits = [
 const reels = [
   { id: 9, title: "Instagram Viral Cinematic Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768662996/6_xijgbh.mp4" },
   { id: 7, title: "Informative VSL", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663007/3_rsruss.mp4" },
-  { id: 8, title: "Instagram Viral Real Estate", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663014/4_jqx4yq.mov" },
+  { id: 8, title: "Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663014/4_jqx4yq.mov" },
   { id: 1, title: "Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663475/1_mqogdv.mp4" },
   { id: 2, title: "Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663458/2_tl9u7q.mov" },
   { id: 3, title: "Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663428/3_eyxzi6.mp4" },
