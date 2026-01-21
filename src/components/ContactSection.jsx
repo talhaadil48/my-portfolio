@@ -1,5 +1,4 @@
 import {
-  Instagram,
   Linkedin,
   Mail,
   MapPin,
@@ -24,7 +23,7 @@ export const ContactSection = () => {
     const message = form[2].value;
 
     try {
-      const res = await fetch("https://www.taximservices.com/api/send-mail", {
+      const res = await fetch("https://www.taximservices.com/api/send-man-mail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +50,6 @@ export const ContactSection = () => {
         title: "Error",
         description: "Something went wrong. Try again later.",
       });
-      console.error("Error sending email:", err);
     } finally {
       setIsSubmitting(false);
     }
@@ -65,7 +63,8 @@ export const ContactSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Looking to scale your brand with high-impact video content? Let’s talk.
+          Interested in collaborating on a web or machine learning project?
+          Let’s connect.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -80,29 +79,15 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium text-left">Email</h4>
                   <a
-                    href="mailto:izhanakhter4455@gmail.com"
+                    href="mailto:manahiladeel09@gmail.com"
                     className="text-muted-foreground hover:text-primary"
                   >
-                    izhanakhter4455@gmail.com
+                    manahiladeel09@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-medium text-left">Phone</h4>
-                  <a
-                    href="tel:+923009231416"
-                    className="text-muted-foreground hover:text-primary"
-                  >
-                    +92 300 9231416
-                  </a>
-                </div>
-              </div>
-
+           
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <MapPin className="h-6 w-6 text-primary" />
@@ -110,7 +95,7 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium text-left">Location</h4>
                   <p className="text-muted-foreground">
-                    Malir, Karachi, Pakistan
+                    Karachi, Pakistan
                   </p>
                 </div>
               </div>

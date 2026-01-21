@@ -2,22 +2,35 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const skills = [
-  { name: "Adobe After Effects", level: 95, category: "editing" },
-  { name: "DaVinci Resolve", level: 90, category: "editing" },
-  { name: "CapCut", level: 90, category: "editing" },
-  { name: "Adobe Photoshop", level: 85, category: "editing" },
-  { name: "Adobe Illustrator", level: 80, category: "editing" },
-  { name: "VSL Editing", level: 90, category: "editing" },
-  { name: "Short-Form Reels", level: 95, category: "editing" },
-  { name: "Instagram Viral Content", level: 95, category: "editing" },
-  { name: "Real Estate Videos", level: 85, category: "editing" },
-  { name: "Meta Ads Reels", level: 90, category: "editing" },
+  { name: "Python", level: 95, category: "programming" },
+  { name: "JavaScript", level: 90, category: "programming" },
+  { name: "SQL", level: 85, category: "programming" },
+  { name: "React.js", level: 90, category: "frontend" },
+  { name: "Next.js", level: 90, category: "frontend" },
+  { name: "Tailwind CSS", level: 85, category: "frontend" },
+  { name: "FastAPI", level: 90, category: "backend" },
+  { name: "Node.js", level: 85, category: "backend" },
+  { name: "REST APIs", level: 90, category: "backend" },
+  { name: "GraphQL", level: 80, category: "backend" },
+  { name: "PostgreSQL", level: 85, category: "databases" },
+  { name: "NeonDB", level: 80, category: "databases" },
+  { name: "Firebase", level: 80, category: "databases" },
+  { name: "TensorFlow", level: 90, category: "ml" },
+  { name: "Neural Networks", level: 85, category: "ml" },
+  { name: "Object Detection", level: 90, category: "ml" },
+  { name: "Computer Vision", level: 85, category: "ml" },
+  { name: "Git & GitHub", level: 90, category: "tools" },
+  { name: "Vercel", level: 85, category: "tools" },
+  { name: "Problem Solving", level: 90, category: "soft" },
+  { name: "Team Collaboration", level: 85, category: "soft" },
+  { name: "Fast Learner", level: 95, category: "soft" },
+  { name: "Clear Communication", level: 90, category: "soft" },
 ];
 
-const categories = ["all", "editing"];
+const categories = ["programming", "frontend", "backend", "databases", "ml", "tools", "soft"];
 
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("programming");
 
   const filteredSkills = skills.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
@@ -30,7 +43,22 @@ export const SkillsSection = () => {
           My <span className="text-primary">Skills</span>
         </h2>
 
-        
+        <div className="flex justify-center gap-4 mb-12 flex-wrap">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={cn(
+                "px-4 py-2 rounded-full border border-primary text-sm font-medium",
+                activeCategory === cat
+                  ? "bg-primary text-background"
+                  : "bg-background text-primary hover:bg-primary/10"
+              )}
+              onClick={() => setActiveCategory(cat)}
+            >
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </button>
+          ))}
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSkills.map((skill, key) => (

@@ -1,156 +1,161 @@
-import { useState, useEffect } from "react";
-import { ArrowRight, Play, X } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
-const videoEdits = [
-  { id: 1, title: "Viral Real Estate", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663022/1_ptdsqr.mp4" },
-  { id: 5, title: "Trending YT VSL Video", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768662994/5_uzikcw.mp4" },
-  { id: 6, title: "Personal Brand Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663025/2_rjrnpi.mp4" },
-];
-
-const reels = [
-  { id: 9, title: "Instagram Viral Cinematic Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768662996/6_xijgbh.mp4" },
-  { id: 7, title: "Informative VSL", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663007/3_rsruss.mp4" },
-  { id: 8, title: "Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663014/4_jqx4yq.mov" },
-  { id: 1, title: "Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663475/1_mqogdv.mp4" },
-  { id: 2, title: "Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663458/2_tl9u7q.mov" },
-  { id: 3, title: "Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663428/3_eyxzi6.mp4" },
-  { id: 4, title: "Instagram Viral Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663475/4_xqjevv.mp4" },
-  { id: 5, title: "Instagram Viral Cinematic Reels", video: "https://res.cloudinary.com/dv7vuoauy/video/upload/f_auto,q_auto/v1768663473/5_ts4v3g.mp4" },
+const projects = [
+  {
+    id: 1,
+    title: "SUFIPULSE",
+    subtitle: "Client-Based Full Stack Platform",
+    link: "https://sufi-pulse.vercel.app",
+    tech: ["Next.js", "FastAPI", "PostgreSQL", "Vercel"],
+    description: (
+      <>
+        <p className="text-muted-foreground mb-3">
+          A sacred, non-monetized platform for Sufi kalams and spiritual poetry — writers submit lyrics, vocalists share renditions, building a global ummah community.
+        </p>
+        <ul className="text-muted-foreground space-y-1.5 list-disc pl-5 marker:text-primary/60 text-sm">
+          <li>Secure authentication with HTTP-only cookies</li>
+          <li>REST APIs in FastAPI + Next.js frontend integration</li>
+          <li>SEO/performance optimized (strong Lighthouse scores)</li>
+          <li>Vercel deployment with CI/CD pipeline</li>
+          <li>Features for kalam submissions & vocal collaborations</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: 2,
+    title: "Oraclia",
+    subtitle: "Customizable AI Agent Platform",
+    link: "https://oraclia.vercel.app/",
+    tech: ["Next.js", "Python", "MySQL"],
+    description: (
+      <>
+        <p className="text-muted-foreground mb-3">
+          Platform for users to create and manage personalized AI chatbots with custom personalities, traits, and conversation styles.
+        </p>
+        <ul className="text-muted-foreground space-y-1.5 list-disc pl-5 marker:text-primary/60 text-sm">
+          <li>Responsive Next.js interface for agent creation</li>
+          <li>Python-based logic for dynamic, trait-driven responses</li>
+          <li>MySQL for storing users, agents & chat history</li>
+          <li>Real-time testing and customization of chatbot behavior</li>
+          <li>Intuitive flow for building multiple personalized agents</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: 3,
+    title: "Real-Time Hand Sign Detection",
+    subtitle: "Sign-to-Speech System",
+    tech: ["TensorFlow", "MediaPipe", "Python"],
+    description: (
+      <>
+        <p className="text-muted-foreground mb-3">
+          Real-time computer vision system that recognizes hand signs via webcam and converts them to spoken language for accessibility.
+        </p>
+        <ul className="text-muted-foreground space-y-1.5 list-disc pl-5 marker:text-primary/60 text-sm">
+          <li>Custom dataset collection and curation</li>
+          <li>TensorFlow models for accurate gesture classification</li>
+          <li>MediaPipe for fast hand landmark detection</li>
+          <li>Low-latency pipeline with text-to-speech output</li>
+          <li>Full ML workflow: training to live inference</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: 4,
+    title: "Sustainable Eco Park",
+    subtitle: "Educational Website",
+    link: "https://sus-forest.vercel.app/",
+    tech: ["Next.js", "Vercel", "Tailwind CSS"],
+    description: (
+      <>
+        <p className="text-muted-foreground mb-3">
+          Guide to NED University's sustainable eco-park — showcases upcycled designs, native plants, green tech, and climate-aware education.
+        </p>
+        <ul className="text-muted-foreground space-y-1.5 list-disc pl-5 marker:text-primary/60 text-sm">
+          <li>Virtual exploration of eco-park features & components</li>
+          <li>Info on wetlands, solar bioreactors, upcycled furniture</li>
+          <li>QR-coded links for hands-on digital learning</li>
+          <li>Focus on biodiversity, water filtration & carbon capture</li>
+          <li>Responsive build deployed on Vercel</li>
+        </ul>
+      </>
+    ),
+  },
+  // Add your 5th project here in the same format when ready
 ];
 
 export const ProjectsSection = () => {
-  const [activeVideo, setActiveVideo] = useState(null);
-
-  // Preload all video files for fastest fetch
-  useEffect(() => {
-    videoEdits.concat(reels).forEach((vid) => {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "video";
-      link.href = vid.video;
-      document.head.appendChild(link);
-    });
-  }, []);
-
   return (
-    <section id="projects" className="py-24 px-4 md:px-6 relative overflow-hidden">
+    <section id="projects" className="py-20 px-4 md:px-6 relative">
+      {/* Subtle background glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-primary/5 pointer-events-none" />
 
-      <div className="container mx-auto max-w-6xl relative z-10">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-center tracking-tight">
-          My{" "}
-          <span className="text-primary bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
-            Work
-          </span>
+      <div className="container mx-auto max-w-5xl relative z-10">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+          My <span className="text-primary">Work</span>
         </h2>
-
-        <p className="text-center text-muted-foreground mb-16 max-w-3xl mx-auto text-lg">
-          A collection of cinematic video edits and high-energy vertical reels —
-          crafted with obsession for motion, color, and vibe.
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          Full-stack apps, AI tools, computer vision & educational platforms — built clean, fast, and with purpose.
         </p>
 
-        {/* Reels */}
-        <div>
-          <h3 className="text-3xl font-bold mb-10 text-center md:text-left">
-            Reels / Shorts
-          </h3>
+        <div className="space-y-6 md:space-y-8">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="group bg-card/60 border border-border/40 rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
+            >
+              <div className="flex flex-col md:flex-row">
+                {/* Left: Heading + Tags */}
+                <div className="md:w-2/5 lg:w-1/3 p-6 md:p-8 bg-muted/30 md:border-r border-border/30 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-semibold group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm mt-1">
+                      {project.subtitle}
+                    </p>
+                  </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-20">
-            {reels.map((reel) => (
-              <div
-                key={reel.id}
-                className="group relative bg-gradient-to-b from-card/80 to-card rounded-2xl overflow-hidden shadow-lg shadow-black/20 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 aspect-[9/16] cursor-pointer"
-                onClick={() => setActiveVideo(reel.video)}
-              >
-                <video
-                  src={reel.video}
-                  muted
-                  loop
-                  playsInline
-                  autoPlay
-                  preload="auto"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 className="text-base font-medium text-white drop-shadow-md line-clamp-2">
-                    {reel.title}
-                  </h4>
-                </div>
-
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="w-14 h-14 rounded-full bg-primary/80 flex items-center justify-center shadow-xl shadow-primary/40 transform scale-90 group-hover:scale-100 transition-transform duration-500">
-                    <Play size={24} className="text-primary-foreground fill-current" />
+                  <div className="flex flex-wrap gap-2 mt-4 md:mt-6">
+                    {project.tech.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2.5 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Video Edits */}
-        <div className="mb-20">
-          <h3 className="text-3xl font-bold mb-10 text-center md:text-left">
-            Video Edits
-          </h3>
+                {/* Right: Description + Bullets + Link */}
+                <div className="flex-1 p-6 md:p-8 flex flex-col">
+                  <div className="flex-grow">
+                    {project.description}
+                  </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {videoEdits.map((project) => (
-              <div
-                key={project.id}
-                className="group relative bg-gradient-to-b from-card/80 to-card rounded-xl overflow-hidden shadow-lg shadow-black/20 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 cursor-pointer"
-                onClick={() => setActiveVideo(project.video)}
-              >
-                <div className="relative aspect-[4/3]">
-                  <video
-                    src={project.video}
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
-                    preload="auto"
-                    className="w-full h-full object-cover transition-transform duration-700"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center transform scale-75 group-hover:scale-100 transition-transform duration-500 shadow-lg shadow-primary/40">
-                      <Play size={28} className="text-primary-foreground fill-current" />
+                  {project.link && (
+                    <div className="mt-6">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"
+                      >
+                        View Live Project
+                        <ExternalLink size={16} />
+                      </a>
                     </div>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <h4 className="text-xl font-semibold text-center md:text-left group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h4>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
-
-      {/* Fullscreen Video Modal */}
-      {activeVideo && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-          <div className="relative w-full max-w-5xl aspect-video">
-            <video
-              src={activeVideo}
-              controls
-              autoPlay
-              className="w-full h-full object-contain rounded-lg"
-            />
-            <button
-              onClick={() => setActiveVideo(null)}
-              className="absolute top-4 right-4 text-white bg-black/50 p-2 rounded-full hover:bg-black/70 transition"
-            >
-              <X size={24} />
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
