@@ -10,7 +10,9 @@ const projects = [
     description: (
       <>
         <p className="text-muted-foreground mb-3">
-          A sacred, non-monetized platform for Sufi kalams and spiritual poetry — writers submit lyrics, vocalists share renditions, building a global ummah community.
+          A sacred, non-monetized platform for Sufi kalams and spiritual poetry
+          — writers submit lyrics, vocalists share renditions, building a global
+          ummah community.
         </p>
         <ul className="text-muted-foreground space-y-1.5 list-disc pl-5 marker:text-primary/60 text-sm">
           <li>Secure authentication with HTTP-only cookies</li>
@@ -31,7 +33,8 @@ const projects = [
     description: (
       <>
         <p className="text-muted-foreground mb-3">
-          Platform for users to create and manage personalized AI chatbots with custom personalities, traits, and conversation styles.
+          Platform for users to create and manage personalized AI chatbots with
+          custom personalities, traits, and conversation styles.
         </p>
         <ul className="text-muted-foreground space-y-1.5 list-disc pl-5 marker:text-primary/60 text-sm">
           <li>Responsive Next.js interface for agent creation</li>
@@ -51,7 +54,8 @@ const projects = [
     description: (
       <>
         <p className="text-muted-foreground mb-3">
-          Real-time computer vision system that recognizes hand signs via webcam and converts them to spoken language for accessibility.
+          Real-time computer vision system that recognizes hand signs via webcam
+          and converts them to spoken language for accessibility.
         </p>
         <ul className="text-muted-foreground space-y-1.5 list-disc pl-5 marker:text-primary/60 text-sm">
           <li>Custom dataset collection and curation</li>
@@ -72,14 +76,17 @@ const projects = [
     description: (
       <>
         <p className="text-muted-foreground mb-3">
-          Guide to NED University's sustainable eco-park — showcases upcycled designs, native plants, green tech, and climate-aware education.
+          Educational website created for NED University's Environmental
+          Department, showcasing the sustainable eco-park with upcycled designs,
+          native plants, and green technologies.
         </p>
         <ul className="text-muted-foreground space-y-1.5 list-disc pl-5 marker:text-primary/60 text-sm">
-          <li>Virtual exploration of eco-park features & components</li>
-          <li>Info on wetlands, solar bioreactors, upcycled furniture</li>
-          <li>QR-coded links for hands-on digital learning</li>
-          <li>Focus on biodiversity, water filtration & carbon capture</li>
-          <li>Responsive build deployed on Vercel</li>
+          <li>Virtual exploration of eco-park features</li>
+          <li>
+            Highlights on wetlands, solar bioreactors, and upcycled furniture
+          </li>
+          <li>Interactive QR-coded links for digital learning</li>
+          <li>Responsive design, deployed on Vercel</li>
         </ul>
       </>
     ),
@@ -98,7 +105,8 @@ export const ProjectsSection = () => {
           My <span className="text-primary">Work</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Full-stack apps, AI tools, computer vision & educational platforms — built clean, fast, and with purpose.
+          Full-stack apps, AI tools, computer vision & educational platforms —
+          built clean, fast, and with purpose.
         </p>
 
         <div className="space-y-6 md:space-y-8">
@@ -133,9 +141,7 @@ export const ProjectsSection = () => {
 
                 {/* Right: Description + Bullets + Link */}
                 <div className="flex-1 p-6 md:p-8 flex flex-col">
-                  <div className="flex-grow">
-                    {project.description}
-                  </div>
+                  <div className="flex-grow">{project.description}</div>
 
                   {project.link && (
                     <div className="mt-6">

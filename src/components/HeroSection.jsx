@@ -42,7 +42,7 @@ export const HeroSection = () => {
         <div className="flex-1 flex justify-center md:justify-end w-full md:w-auto">
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[320px] md:h-[320px] lg:w-[380px] lg:h-[380px] xl:w-[420px] xl:h-[420px] rounded-full overflow-hidden shadow-2xl ring-2 ring-primary/20">
             <img
-              src="/img.jpeg"
+              src="/imggg.jfif"
               alt="Manahil Adeel"
               className="w-full h-full object-cover"
             />

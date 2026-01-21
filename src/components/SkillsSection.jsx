@@ -2,29 +2,29 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const skills = [
-  { name: "Python", level: 95, category: "programming" },
-  { name: "JavaScript", level: 90, category: "programming" },
-  { name: "SQL", level: 85, category: "programming" },
-  { name: "React.js", level: 90, category: "frontend" },
-  { name: "Next.js", level: 90, category: "frontend" },
-  { name: "Tailwind CSS", level: 85, category: "frontend" },
-  { name: "FastAPI", level: 90, category: "backend" },
-  { name: "Node.js", level: 85, category: "backend" },
-  { name: "REST APIs", level: 90, category: "backend" },
-  { name: "GraphQL", level: 80, category: "backend" },
-  { name: "PostgreSQL", level: 85, category: "databases" },
-  { name: "NeonDB", level: 80, category: "databases" },
-  { name: "Firebase", level: 80, category: "databases" },
-  { name: "TensorFlow", level: 90, category: "ml" },
-  { name: "Neural Networks", level: 85, category: "ml" },
-  { name: "Object Detection", level: 90, category: "ml" },
-  { name: "Computer Vision", level: 85, category: "ml" },
-  { name: "Git & GitHub", level: 90, category: "tools" },
-  { name: "Vercel", level: 85, category: "tools" },
-  { name: "Problem Solving", level: 90, category: "soft" },
-  { name: "Team Collaboration", level: 85, category: "soft" },
-  { name: "Fast Learner", level: 95, category: "soft" },
-  { name: "Clear Communication", level: 90, category: "soft" },
+  { name: "Python", category: "programming" },
+  { name: "JavaScript", category: "programming" },
+  { name: "SQL", category: "programming" },
+  { name: "React.js", category: "frontend" },
+  { name: "Next.js", category: "frontend" },
+  { name: "Tailwind CSS", category: "frontend" },
+  { name: "FastAPI", category: "backend" },
+  { name: "Node.js", category: "backend" },
+  { name: "REST APIs", category: "backend" },
+  { name: "GraphQL", category: "backend" },
+  { name: "PostgreSQL", category: "databases" },
+  { name: "NeonDB", category: "databases" },
+  { name: "Firebase", category: "databases" },
+  { name: "TensorFlow", category: "ml" },
+  { name: "Neural Networks", category: "ml" },
+  { name: "Object Detection", category: "ml" },
+  { name: "Computer Vision", category: "ml" },
+  { name: "Git & GitHub", category: "tools" },
+  { name: "Vercel", category: "tools" },
+  { name: "Problem Solving", category: "soft" },
+  { name: "Team Collaboration", category: "soft" },
+  { name: "Fast Learner", category: "soft" },
+  { name: "Clear Communication", category: "soft" },
 ];
 
 const categories = ["programming", "frontend", "backend", "databases", "ml", "tools", "soft"];
@@ -68,14 +68,7 @@ export const SkillsSection = () => {
               </div>
 
               <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
-                  style={{ width: skill.level + "%" }}
-                />
-              </div>
-
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                <div className="bg-primary h-2 rounded-full animate-[grow_1.5s_ease-out]" />
               </div>
             </div>
           ))}

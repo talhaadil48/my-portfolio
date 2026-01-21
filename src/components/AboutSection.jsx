@@ -27,7 +27,7 @@ export const AboutSection = () => {
               development lifecycle.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="#contact" className="cosmic-button">
                 Get In Touch
               </a>
@@ -180,25 +180,7 @@ export const AboutSection = () => {
 
           <div className="space-y-6 max-w-4xl mx-auto">
             {/* Matriculation */}
-            <div className="gradient-border p-6 md:p-8 card-hover bg-card/50">
-              <div className="flex items-start gap-5">
-                <div className="p-4 rounded-full bg-primary/10 shrink-0">
-                  <GraduationCap className="h-7 w-7 text-primary" />
-                </div>
-                <div className="space-y-2 text-left">
-                  <h4 className="font-semibold text-xl">
-                    Matriculation Certificate
-                  </h4>
-                  <p className="text-muted-foreground">
-                    H.B. Malik Public School, Karachi
-                  </p>
-                  <p className="font-medium text-primary">
-                    Graduated with A+ | 98%
-                  </p>
-                </div>
-              </div>
-            </div>
-
+          
             {/* Intermediate */}
             <div className="gradient-border p-6 md:p-8 card-hover bg-card/50">
               <div className="flex items-start gap-5">
