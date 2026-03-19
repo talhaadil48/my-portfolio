@@ -12,7 +12,8 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 @import "@fortawesome/fontawesome-free/scss/solid.scss";
 @import "@fortawesome/fontawesome-free/scss/regular.scss";
 @import "@fortawesome/fontawesome-free/scss/brands.scss";
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap');
+[lang="ur"] { font-family: 'Noto Nastaliq Urdu', serif; }
 // Importing PrimeIcons...
 @import "primeicons/primeicons.css";
 
@@ -23,3 +24,10 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 @import "customization/primitives-customization";
 @import "customization/bootstrap-customization";
 @import "customization/plugin-customization";
+
+
+:lang(ur) {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+  direction: rtl;
+  text-align: right;
+}

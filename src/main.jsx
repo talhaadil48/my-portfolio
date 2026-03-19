@@ -1,11 +1,11 @@
 import "/src/styles/app.scss"
-import {StrictMode, useEffect, useState} from 'react'
-import {createRoot} from 'react-dom/client'
-import {useApi} from "/src/hooks/api.js"
-import {useConstants} from "/src/hooks/constants.js"
-import {useUtils} from "/src/hooks/utils.js"
+import { StrictMode, useEffect, useState } from 'react'
+import { createRoot } from 'react-dom/client'
+import { useApi } from "/src/hooks/api.js"
+import { useConstants } from "/src/hooks/constants.js"
+import { useUtils } from "/src/hooks/utils.js"
 import Preloader from "/src/components/loaders/Preloader.jsx"
-import DataProvider, {useData} from "/src/providers/DataProvider.jsx"
+import DataProvider, { useData } from "/src/providers/DataProvider.jsx"
 import LanguageProvider from "/src/providers/LanguageProvider.jsx"
 import ViewportProvider from "/src/providers/ViewportProvider.jsx"
 import ThemeProvider from "/src/providers/ThemeProvider.jsx"
@@ -18,12 +18,12 @@ import Portfolio from "/src/components/Portfolio.jsx"
 /** Initialization Script... **/
 let container = null
 
-document.addEventListener('DOMContentLoaded', function(event) {
-    if(container)
+document.addEventListener('DOMContentLoaded', function (event) {
+    if (container)
         return
 
     container = document.getElementById('root')
-    createRoot(document.getElementById('root')).render(<App/>)
+    createRoot(document.getElementById('root')).render(<App />)
 })
 
 /**
@@ -35,7 +35,7 @@ const App = () => {
     return (
         <AppEssentialsWrapper>
             <AppCapabilitiesWrapper>
-                <Portfolio/>
+                <Portfolio />
             </AppCapabilitiesWrapper>
         </AppEssentialsWrapper>
     )
@@ -47,7 +47,7 @@ const App = () => {
  * @return {JSX.Element}
  * @constructor
  */
-const AppEssentialsWrapper = ({children}) => {
+const AppEssentialsWrapper = ({ children }) => {
     const api = useApi()
     const utils = useUtils()
     const constants = useConstants()
@@ -63,13 +63,13 @@ const AppEssentialsWrapper = ({children}) => {
             setSettings(response)
 
             const consoleMessageForDevelopers = response?.consoleMessageForDevelopers
-            if(consoleMessageForDevelopers) {
+            if (consoleMessageForDevelopers) {
                 const primaryColor = utils.css.getRootSCSSVariable('--bs-primary')
                 utils.log.info(consoleMessageForDevelopers.title, consoleMessageForDevelopers.items, primaryColor)
             }
         })
 
-        api.analytics.reportVisit().then(() => {})
+        api.analytics.reportVisit().then(() => { })
     }, [])
 
     const _applyDeveloperSettings = (settings) => {
@@ -78,22 +78,22 @@ const AppEssentialsWrapper = ({children}) => {
         const fakeEmailRequests = developerSettings?.fakeEmailRequests
         const stayOnThePreloaderScreen = developerSettings?.stayOnThePreloaderScreen
 
-        if(constants.PRODUCTION_MODE)
+        if (constants.PRODUCTION_MODE)
             return settings
 
-        if(debugMode) {
+        if (debugMode) {
             settings.preloaderSettings.enabled = stayOnThePreloaderScreen
             settings.templateSettings.backgroundStyle = "plain"
             utils.storage.setWindowVariable("suspendAnimations", true)
             utils.log.warn("DataProvider", "Debug Mode is enabled, so transitions and animated content—such as the preloader screen, background animations, and role text typing—will be skipped. You can disable it manually on settings.json or by running the app on PROD_MODE, which disables it by default.")
         }
 
-        if(fakeEmailRequests) {
+        if (fakeEmailRequests) {
             utils.storage.setWindowVariable("fakeEmailRequests", true)
             utils.log.warn("DataProvider", "Fake email requests are enabled. This is only for development purposes and will be disabled automatically in production.")
         }
 
-        if(stayOnThePreloaderScreen) {
+        if (stayOnThePreloaderScreen) {
             utils.storage.setWindowVariable("stayOnThePreloaderScreen", true)
             utils.log.warn("DataProvider", "Preloader screen will be displayed indefinitely because the developer flag 'stayOnThePreloaderScreen' is on. This is only for development purposes and will be disabled automatically in production.")
         }
@@ -137,20 +137,20 @@ const AppCapabilitiesWrapper = ({ children }) => {
 
     return (
         <LanguageProvider supportedLanguages={supportedLanguages}
-                          defaultLanguageId={defaultLanguageId}
-                          appStrings={appStrings}
-                          selectedThemeId={selectedThemeId}>
+            defaultLanguageId={defaultLanguageId}
+            appStrings={appStrings}
+            selectedThemeId={selectedThemeId}>
             <ViewportProvider>
                 <InputProvider>
                     <FeedbacksProvider canHaveAnimatedCursor={animatedCursorEnabled}>
                         <ThemeProvider supportedThemes={supportedThemes}
-                                       defaultThemeId={defaultThemeId}
-                                       showSpinnerOnThemeChange={showSpinnerOnThemeChange}
-                                       onThemeChanged={setSelectedThemeId}>
+                            defaultThemeId={defaultThemeId}
+                            showSpinnerOnThemeChange={showSpinnerOnThemeChange}
+                            onThemeChanged={setSelectedThemeId}>
                             <LocationProvider sections={appSections}
-                                              categories={appCategories}>
+                                categories={appCategories}>
                                 <NavigationProvider sections={appSections}
-                                                    categories={appCategories}>
+                                    categories={appCategories}>
                                     {children}
                                 </NavigationProvider>
                             </LocationProvider>
