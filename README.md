@@ -99,7 +99,6 @@ Follow these additional tutorials to further enhance your portfolio with advance
 
 ## About
 
-This template was created by and is maintained by **[Talha Adil](https://ryanbalieiro.com/)**.
 
 It's based on the **[React](https://reactjs.org/)** framework created by Jordan Walke, and the **[Bootstrap](https://getbootstrap.com/)** framework created by Mark Otto and Jacob Thorton.
 
