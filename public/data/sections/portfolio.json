@@ -251,25 +251,25 @@
                     },
                     "locales": {
                         "en": {
-                            "title": "Eco Park – AI Environmental Platform",
-                            "text": "AI-powered platform for exploring environmental parks using <b>Next.js</b> frontend and <b>Supabase</b> backend. Integrated OpenAI LLM for interactive guidance and educational content.",
+                            "title": "Eco Park – Urban Gardens & Environmental Exploration",
+                            "text": "Platform for discovering urban gardens and eco-parks using <b>Next.js</b> frontend and <b>Supabase</b> backend. Minimal AI is used to provide guidance and educational content for visitors.",
                             "tags": [
                                 "Next.js",
                                 "Supabase",
                                 "OpenAI",
                                 "Environmental",
-                                "LLM"
+                                "Guidance"
                             ]
                         },
                         "ur": {
-                            "title": "ایکو پارک – اے آئی ماحولیاتی پلیٹ فارم",
-                            "text": "<b>Next.js</b> فرنٹ اینڈ اور <b>Supabase</b> بیک اینڈ کے ساتھ ماحولیاتی پارکس کی تلاش کا اے آئی پلیٹ فارم۔ OpenAI LLM کے ساتھ انٹرایکٹو گائیڈنس۔",
+                            "title": "ایکو پارک – شہری باغات اور ماحولیاتی دریافت",
+                            "text": "شہری باغات اور ماحولیاتی پارکس دریافت کرنے کا پلیٹ فارم، <b>Next.js</b> فرنٹ اینڈ اور <b>Supabase</b> بیک اینڈ کے ساتھ۔ محدود AI کا استعمال صارفین کو رہنمائی اور تعلیمی مواد فراہم کرنے کے لیے کیا گیا ہے۔",
                             "tags": [
                                 "نیکسٹ جے ایس",
                                 "سوپابیس",
                                 "اوپن اے آئی",
                                 "ماحولیاتی",
-                                "ایل ایل ایم"
+                                "رہنمائی"
                             ]
                         }
                     }
