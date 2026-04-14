@@ -48,7 +48,7 @@
                     "preview": {
                         "links": [
                             {
-                                "href": "https://www.sufipulse.com/",
+                                "href": "https://sufi-pulse.vercel.app",
                                 "tooltipString": "see_on_website",
                                 "faIcon": "fa-solid fa-link"
                             }
